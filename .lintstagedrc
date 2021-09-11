@@ -1,0 +1,6 @@
+{
+  "src/react/**/*.ts?(x)": [
+    "eslint",
+    "tsc -p src/react/tsconfig.json --noEmit",
+    ],
+}

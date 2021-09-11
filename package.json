@@ -1,0 +1,35 @@
+{
+  "name": "3littlepigz",
+  "version": "0.0.0",
+  "description": "A pet project",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npm run prod:build:next",
+    "deploy": "cd src/next && npm run deploy:next",
+    "deploy:next": "npx serverless deploy",
+    "prod:build:next": "cd src/next && npm run build",
+    "dev:lint": "cfn-lint .serverless"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amatyas001/3littlepigz.git"
+  },
+  "keywords": [
+    "pet-project"
+  ],
+  "authors": [
+    "Matyas Angyal <amatyas001@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/amatyas001/3littlepigz#readme",
+  "bugs": {
+    "url": "https://github.com/amatyas001/3littlepigz/issues"
+  },
+  "dependencies": {
+    "serverless": "2.11.x"
+  },
+  "devDependencies": {
+    "@types/serverless": "^1.78.35",
+    "cfn-lint": "^1.9.7"
+  }
+}

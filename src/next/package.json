@@ -1,0 +1,47 @@
+{
+  "name": "@3littlepigz/react",
+  "version": "0.0.0",
+  "description": "A pet project frontend",
+  "main": "dist/index.js",
+  "keywords": [
+    "react",
+    "next",
+    "typescript"
+  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amatyas001/3littlepigz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amatyas001/3littlepigz/issues"
+  },
+  "homepage": "https://github.com/amatyas001/3littlepigz#readme",
+  "dependencies": {
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.4.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@types/enzyme": "^3.10.9",
+    "@types/eslint": "^7.28.0",
+    "@types/jest": "^27.0.1",
+    "@types/prettier": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "enzyme": "^3.11.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "eslint-plugin-react": "^7.25.1",
+    "husky": "^7.0.2",
+    "jest": "^27.1.1",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.4.0"
+  }
+}
