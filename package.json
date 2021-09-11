@@ -4,11 +4,15 @@
   "description": "A pet project",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npm run prod:build:next",
-    "deploy": "cd src/next && npm run deploy:next",
-    "deploy:next": "npx serverless deploy",
-    "prod:build:next": "cd src/next && npm run build",
-    "dev:lint": "cfn-lint .serverless"
+    "start": "npm-run-all start:next",
+    "build": "npm-run-all build:next",
+    "deploy": "npm-run-all lint build deploy:next",
+    "lint": "npm-run-all eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "test": "npm-run-all test:next",
+    "start:next": "cd src/next && \"next start\"",
+    "build:next": "cd src/next && \"next:build\"",
+    "test:next": "cd src/next && \"jest\"",
+    "deploy:next": "cd src/next && \"serverless\""
   },
   "repository": {
     "type": "git",
@@ -26,6 +30,7 @@
     "url": "https://github.com/amatyas001/3littlepigz/issues"
   },
   "dependencies": {
+    "npm-run-all": "^4.1.x",
     "serverless": "2.11.x"
   },
   "devDependencies": {
