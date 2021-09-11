@@ -1,4 +1,6 @@
-# package directories
+.env*
+!.env.sample
+
 node_modules
 jspm_packages
 

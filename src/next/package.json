@@ -2,27 +2,41 @@
   "name": "@3littlepigz/react",
   "version": "0.0.0",
   "description": "A pet project frontend",
-  "main": "dist/index.js",
+  "homepage": "https://github.com/amatyas001/3littlepigz/src/next/#readme",
+  "license": "MIT",
+  "main": ".next/server/pages/index.html",
   "keywords": [
     "react",
     "next",
     "typescript"
   ],
   "scripts": {
-    "test": "jest"
+    "dev": "next dev",
+    "next:start": "next start",
+    "next:build": "next build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amatyas001/3littlepigz.git"
+    "url": "git+https://github.com/amatyas001/3littlepigz.git/src/next"
   },
   "bugs": {
     "url": "https://github.com/amatyas001/3littlepigz/issues"
   },
-  "homepage": "https://github.com/amatyas001/3littlepigz#readme",
   "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@material-ui/core": "^4.12.3",
+    "@mui/icons-material": "^5.0.0-rc.0",
+    "@mui/material": "^5.0.0-rc.0",
+    "@mui/styles": "^5.0.0-rc.0",
+    "@mui/system": "^5.0.0-rc.0",
+    "clsx": "^1.1.1",
+    "final-form": "^4.20.2",
+    "markdown-to-jsx": "^7.1.3",
     "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-final-form": "^6.5.3",
     "typescript": "^4.4.2"
   },
   "devDependencies": {
@@ -33,12 +47,17 @@
     "@types/jest": "^27.0.1",
     "@types/prettier": "^2.3.2",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
     "enzyme": "^3.11.0",
-    "eslint": "^5.16.0",
+    "eslint": "7",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-next": "^11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-typescript": "^0.14.0",
     "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-typescript": "^0.14.0",
     "husky": "^7.0.2",
     "jest": "^27.1.1",
     "lint-staged": "^11.1.2",
