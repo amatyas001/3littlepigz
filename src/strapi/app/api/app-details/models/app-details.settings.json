@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "app_details",
+  "info": {
+    "name": "App Details"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "SubTitle": {
+      "type": "text"
+    }
+  }
+}

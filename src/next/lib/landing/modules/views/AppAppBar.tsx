@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import Link from 'next/link';
 import Box from '@mui/material/Box';
 import MaterialLink from '@mui/material/Link';
+import { AppContext } from 'pages/index';
 import AppBar from '../components/AppBar';
 import Toolbar from '../components/Toolbar';
 
@@ -11,6 +13,10 @@ const rightMaterialLink = {
 };
 
 function AppAppBar() {
+  const {
+    app: { content },
+  } = useContext(AppContext);
+
   return (
     <div>
       <AppBar position="fixed">
@@ -23,7 +29,7 @@ function AppAppBar() {
               color="inherit"
               sx={{ fontSize: 24, textTransform: 'none', letterSpacing: '0.3rem' }}
             >
-              {'[root]'}
+              {content.Title}
             </MaterialLink>
           </Link>
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>

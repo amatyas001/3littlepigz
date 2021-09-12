@@ -36,15 +36,7 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "allowSyntheticDefaultImports": true
-    // "emitDecoratorMetadata": true,
-    // "experimentalDecorators": true,
-    // "inlineSourceMap": true,
-    // "inlineSources": true,
-    // "mapRoot": "",
-    // "noFallthroughCasesInSwitch": true,
-    // "typeRoots": [],
-    // "types": [],
+    "allowSyntheticDefaultImports": true,
   },
   "include": [
     "next-env.d.ts",

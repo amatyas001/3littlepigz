@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import { useContext } from 'react';
+import { AppContext } from 'pages/index';
 import Button from '../components/Button';
 import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
@@ -7,6 +8,9 @@ const backgroundImage =
   'https://images.unsplash.com/photo-1615392030676-6c532fe0c302?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80';
 
 export default function ProductHero() {
+  const {
+    app: { content },
+  } = useContext(AppContext);
   return (
     <ProductHeroLayout
       sxBackground={{
@@ -16,10 +20,10 @@ export default function ProductHero() {
       }}
     >
       <Typography color="inherit" align="center" variant="h2" marked="center">
-        A pet project
+        {content.Title}
       </Typography>
       <Typography color="inherit" align="center" variant="h5" sx={{ mb: 4, mt: { sx: 4, sm: 10 } }}>
-        Join the community of independent developers and their pet project
+        {content.SubTitle}
       </Typography>
       <Button
         color="secondary"

@@ -1,3 +1,5 @@
+import axios from 'axios';
+import config from 'config';
 import ProductCategories from 'lib/landing/modules/views/ProductCategories';
 import ProductSmokingHero from 'lib/landing/modules/views/ProductSmokingHero';
 import AppFooter from 'lib/landing/modules/views/AppFooter';
@@ -7,11 +9,34 @@ import ProductHowItWorks from 'lib/landing/modules/views/ProductHowItWorks';
 import ProductCTA from 'lib/landing/modules/views/ProductCTA';
 import AppAppBar from 'lib/landing/modules/views/AppAppBar';
 import withRoot from 'lib/landing/modules/withRoot';
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
+import { createContext } from 'react';
 
-const Index: NextPage = () => {
+type TAppContent = {
+  Title: string;
+  SubTitle: string;
+};
+
+type TAppContext = {
+  app: {
+    content: TAppContent;
+    error: string;
+  };
+};
+
+type TProps = { content: TAppContent; error: string };
+
+const initialState: TAppContext = { app: { content: Object.create(null), error: '' } };
+
+export const AppContext = createContext<TAppContext>(initialState);
+
+const Index: NextPage<TProps> = ({ content, error }) => {
+  const context = {
+    app: { content, error },
+  };
+
   return (
-    <>
+    <AppContext.Provider value={context}>
       <AppAppBar />
       <ProductHero />
       <ProductValues />
@@ -20,8 +45,20 @@ const Index: NextPage = () => {
       <ProductCTA />
       <ProductSmokingHero />
       <AppFooter />
-    </>
+    </AppContext.Provider>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<TProps> = async () => {
+  const result = await axios.get<TAppContent>(`${config.api.cms}/app-details`);
+
+  const error = (result.status !== 200 && result.statusText) || '';
+
+  console.log(JSON.stringify(result.data), error);
+
+  return {
+    props: { content: { ...result.data }, error },
+  };
 };
 
 export default withRoot(Index);

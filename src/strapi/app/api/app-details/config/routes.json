@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/app-details",
+      "handler": "app-details.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/app-details",
+      "handler": "app-details.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/app-details",
+      "handler": "app-details.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
