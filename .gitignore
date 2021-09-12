@@ -1,10 +1,10 @@
+creds.csv
 src/postgres
 node_modules
 jspm_packages
 
 # Lock files (Heroku only)
 package-lock.json
-yarn.lock
 
 # Serverless directories
 .next

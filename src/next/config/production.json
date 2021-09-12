@@ -1,5 +1,5 @@
 {
   "api": {
-    "cms": "http://strapi:1337"
+    "cms": "https://the-pet-project.herokuapp.com/"
   }
 }
