@@ -1,5 +1,4 @@
 import axios from 'axios';
-import config from 'config';
 import ProductCategories from 'lib/landing/modules/views/ProductCategories';
 import ProductSmokingHero from 'lib/landing/modules/views/ProductSmokingHero';
 import AppFooter from 'lib/landing/modules/views/AppFooter';
@@ -50,7 +49,11 @@ const Index: NextPage<TProps> = ({ content, error }) => {
 };
 
 export async function getServerSideProps() {
-  const result = await axios.get<TAppContent>(`${config.get('api.cms')}/app-details`);
+  const CMS_URL =
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:1337'
+      : 'https://the-pet-project.herokuapp.com';
+  const result = await axios.get<TAppContent>(`${CMS_URL}/app-details`);
   const error = (result.status !== 200 && result.statusText) || '';
 
   return {
