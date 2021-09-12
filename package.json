@@ -32,11 +32,5 @@
   "dependencies": {
     "npm-run-all": "^4.1.x"
   },
-  "devDependencies": {},
-  "lint-staged": {
-    "src/react/**/*.ts?(x)": [
-      "eslint",
-      "tsc -p src/react/tsconfig.json --noEmit"
-    ]
-  }
+  "devDependencies": {}
 }
