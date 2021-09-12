@@ -3,7 +3,7 @@ name: Deploy CMS to Heroku
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
