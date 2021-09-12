@@ -49,16 +49,13 @@ const Index: NextPage<TProps> = ({ content, error }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<TProps> = async () => {
+export async function getServerSideProps() {
   const result = await axios.get<TAppContent>(`${config.api.cms}/app-details`);
-
   const error = (result.status !== 200 && result.statusText) || '';
 
-  console.log(JSON.stringify(result.data), error);
-
   return {
-    props: { content: { ...result.data }, error },
+    props: { content: { ...(result.data ?? Object.create(null)) }, error },
   };
-};
+}
 
 export default withRoot(Index);

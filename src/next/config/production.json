@@ -1,5 +1,5 @@
 {
   "api": {
-    "cms": "localhost:1337"
+    "cms": "http://strapi:1337"
   }
 }

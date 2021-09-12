@@ -10,7 +10,7 @@ services:
       DATABASE_USERNAME: strapi
       DATABASE_PASSWORD: strapi
     volumes:
-      - ./strapi/app:/srv/app
+      - ./src/strapi/app:/srv/app
     ports:
       - '1337:1337'
     depends_on:
@@ -23,13 +23,19 @@ services:
       POSTGRES_USER: strapi
       POSTGRES_PASSWORD: strapi
     volumes:
-      - ./strapi/data:/var/lib/postgresql/data
+      - ./src/strapi/data:/var/lib/postgresql/data
 
   next:
-    image: 3littlepigz/next
-    environment:
-      NODE_ENV: 'production'
+    build:
+      context: ./src/next
+      dockerfile: Dockerfile
     volumes:
-      - ./next:/app
+      - ./src/next:/app
+    env_file:
+      - .env
     ports:
       - '3000:3000'
+
+networks:
+  default:
+    driver: bridge
