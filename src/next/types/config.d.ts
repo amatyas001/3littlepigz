@@ -3,6 +3,7 @@ declare module 'config' {
     api: {
       cms: string;
     };
+    get: (conf: string) => string;
   }
 
   const config: Config;

@@ -1,10 +1,7 @@
 version: '3'
 services:
   strapi:
-    image: amatyas001/petproject-strapi
-    build:
-      context: ./src/strapi
-      dockerfile: Dockerfile
+    image: strapi/strapi
     environment:
       DATABASE_CLIENT: postgres
       DATABASE_NAME: strapi
@@ -35,8 +32,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./src/next:/app
-    env_file:
-      - .env
     ports:
       - '3000:3000'
 

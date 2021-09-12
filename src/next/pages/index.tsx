@@ -50,7 +50,7 @@ const Index: NextPage<TProps> = ({ content, error }) => {
 };
 
 export async function getServerSideProps() {
-  const result = await axios.get<TAppContent>(`${config.api.cms}/app-details`);
+  const result = await axios.get<TAppContent>(`${config.get('api.cms')}/app-details`);
   const error = (result.status !== 200 && result.statusText) || '';
 
   return {
