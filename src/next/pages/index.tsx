@@ -9,7 +9,7 @@ import ProductHowItWorks from 'lib/landing/modules/views/ProductHowItWorks';
 import ProductCTA from 'lib/landing/modules/views/ProductCTA';
 import AppAppBar from 'lib/landing/modules/views/AppAppBar';
 import withRoot from 'lib/landing/modules/withRoot';
-import { GetServerSideProps, NextPage } from 'next';
+import { NextPage } from 'next';
 import { createContext } from 'react';
 
 type TAppContent = {

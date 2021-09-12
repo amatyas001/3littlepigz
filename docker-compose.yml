@@ -1,7 +1,10 @@
 version: '3'
 services:
   strapi:
-    image: strapi/strapi
+    image: amatyas001/petproject-strapi
+    build:
+      context: ./src/strapi
+      dockerfile: Dockerfile
     environment:
       DATABASE_CLIENT: postgres
       DATABASE_NAME: strapi
@@ -23,9 +26,10 @@ services:
       POSTGRES_USER: strapi
       POSTGRES_PASSWORD: strapi
     volumes:
-      - ./src/strapi/data:/var/lib/postgresql/data
+      - ./src/postgres:/var/lib/postgresql/data
 
   next:
+    image: amatyas001/petproject-next
     build:
       context: ./src/next
       dockerfile: Dockerfile
