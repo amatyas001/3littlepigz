@@ -6,13 +6,12 @@
   "scripts": {
     "start": "npm-run-all start:next",
     "build": "npm-run-all build:next",
-    "deploy": "npm-run-all lint build deploy:next",
+    "deploy": "npm-run-all lint build",
     "lint": "npm-run-all eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "test": "npm-run-all test:next",
     "start:next": "cd src/next && \"next start\"",
-    "build:next": "cd src/next && \"next build\"",
-    "test:next": "cd src/next && \"jest\"",
-    "deploy:next": "cd src/next && \"serverless\""
+    "build:next": "cd src/next && \"npm-run-all build\"",
+    "test:next": "cd src/next && \"jest\""
   },
   "repository": {
     "type": "git",
