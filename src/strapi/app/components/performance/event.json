@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_performance_events",
+  "info": {
+    "name": "Event",
+    "icon": "calendar-plus"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "datetime"
+    },
+    "Image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "Fee": {
+      "type": "decimal"
+    },
+    "Available": {
+      "type": "boolean"
+    },
+    "Link": {
+      "type": "string"
+    }
+  }
+}

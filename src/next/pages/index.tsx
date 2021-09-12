@@ -51,7 +51,7 @@ const Index: NextPage<TProps> = ({ content, error }) => {
 export async function getServerSideProps() {
   const CMS_URL =
     process.env.NODE_ENV === 'development'
-      ? 'http://localhost:1337'
+      ? 'http://strapi:1337'
       : 'https://the-pet-project.herokuapp.com';
   const result = await axios.get<TAppContent>(`${CMS_URL}/app-details`);
   const error = (result.status !== 200 && result.statusText) || '';

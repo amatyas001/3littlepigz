@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "events",
+  "info": {
+    "name": "Events",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Event": {
+      "type": "component",
+      "repeatable": true,
+      "component": "performance.event"
+    }
+  }
+}
