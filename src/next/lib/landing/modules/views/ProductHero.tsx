@@ -1,20 +1,16 @@
-import { useContext } from 'react';
-import { AppContext } from 'pages/index';
+import { FunctionComponent } from 'react';
+import { useSelector } from 'react-redux';
 import Button from '../components/Button';
 import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
 
-const backgroundImage =
-  'https://images.unsplash.com/photo-1615392030676-6c532fe0c302?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80';
+const ProductHero: FunctionComponent = () => {
+  const content = useSelector((state: RootState) => state.content.home);
 
-export default function ProductHero() {
-  const {
-    app: { content },
-  } = useContext(AppContext);
   return (
     <ProductHeroLayout
       sxBackground={{
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: `url(${content.HeroBackground.url})`,
         backgroundColor: '#7fc7d9', // Average color of the background image.
         backgroundPosition: 'center',
       }}
@@ -40,4 +36,6 @@ export default function ProductHero() {
       </Typography>
     </ProductHeroLayout>
   );
-}
+};
+
+export default ProductHero;

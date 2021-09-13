@@ -1,4 +1,3 @@
-import axios from 'axios';
 import ProductCategories from 'lib/landing/modules/views/ProductCategories';
 import ProductSmokingHero from 'lib/landing/modules/views/ProductSmokingHero';
 import AppFooter from 'lib/landing/modules/views/AppFooter';
@@ -8,8 +7,10 @@ import ProductHowItWorks from 'lib/landing/modules/views/ProductHowItWorks';
 import ProductCTA from 'lib/landing/modules/views/ProductCTA';
 import AppAppBar from 'lib/landing/modules/views/AppAppBar';
 import withRoot from 'lib/landing/modules/withRoot';
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import { createContext } from 'react';
+import client from 'lib/utils/apollo';
+import { gql } from '@apollo/client';
 
 type TAppContent = {
   Title: string;
@@ -29,13 +30,9 @@ const initialState: TAppContext = { app: { content: Object.create(null), error: 
 
 export const AppContext = createContext<TAppContext>(initialState);
 
-const Index: NextPage<TProps> = ({ content, error }) => {
-  const context = {
-    app: { content, error },
-  };
-
+const Index: NextPage<TProps> = () => {
   return (
-    <AppContext.Provider value={context}>
+    <>
       <AppAppBar />
       <ProductHero />
       <ProductValues />
@@ -44,21 +41,28 @@ const Index: NextPage<TProps> = ({ content, error }) => {
       <ProductCTA />
       <ProductSmokingHero />
       <AppFooter />
-    </AppContext.Provider>
+    </>
   );
 };
 
-export async function getServerSideProps() {
-  const CMS_URL =
-    process.env.NODE_ENV === 'development'
-      ? 'http://strapi:1337'
-      : 'https://the-pet-project.herokuapp.com';
-  const result = await axios.get<TAppContent>(`${CMS_URL}/app-details`);
-  const error = (result.status !== 200 && result.statusText) || '';
-
+export const getServerSideProps: GetServerSideProps = async () => {
+  const query = gql`
+    query getHomeContent {
+      appDetail {
+        id
+        Title
+        SubTitle
+        HeroBackground {
+          id
+          url
+        }
+      }
+    }
+  `;
+  const { data } = await client.query({ query });
   return {
-    props: { content: { ...(result.data ?? Object.create(null)) }, error },
+    props: { initialState: { content: { home: data.appDetail } } },
   };
-}
+};
 
 export default withRoot(Index);

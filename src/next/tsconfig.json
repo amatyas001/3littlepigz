@@ -22,11 +22,8 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "lib/*": [
-        "./lib/*"
-      ],
-      "pages/*": [
-        "./pages/*"
+      "./*": [
+        "./*"
       ]
     },
     "esModuleInterop": true,

@@ -1,10 +1,10 @@
-import { useContext } from 'react';
 import Link from 'next/link';
 import Box from '@mui/material/Box';
 import MaterialLink from '@mui/material/Link';
-import { AppContext } from 'pages/index';
-import AppBar from '../components/AppBar';
-import Toolbar from '../components/Toolbar';
+import { useSelector } from 'react-redux';
+import { FunctionComponent } from 'react';
+import AppBar from 'lib/landing/modules/components/AppBar';
+import Toolbar from 'lib/landing/modules//components/Toolbar';
 
 const rightMaterialLink = {
   fontSize: 16,
@@ -12,10 +12,8 @@ const rightMaterialLink = {
   ml: 3,
 };
 
-function AppAppBar() {
-  const {
-    app: { content },
-  } = useContext(AppContext);
+const AppAppBar: FunctionComponent = () => {
+  const content = useSelector((state: RootState) => state.content.home);
 
   return (
     <div>
@@ -59,6 +57,6 @@ function AppAppBar() {
       <Toolbar />
     </div>
   );
-}
+};
 
 export default AppAppBar;

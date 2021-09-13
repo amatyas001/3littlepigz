@@ -1,9 +1,11 @@
-declare module 'config' {
+/* eslint-disable no-unused-vars */
+declare module 'clientconfig' {
   interface Config {
-    api: {
-      cms: string;
+    client: {
+      strapi: {
+        api: string;
+      };
     };
-    get: (conf: string) => string;
   }
 
   const config: Config;

@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "app_details",
   "info": {
-    "name": "App Details"
+    "name": "App Details",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -15,7 +16,19 @@
       "type": "string"
     },
     "SubTitle": {
-      "type": "text"
+      "type": "string"
+    },
+    "HeroBackground": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }
